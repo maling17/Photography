@@ -37,11 +37,7 @@ public class MainActivity extends AppCompatActivity implements Callback<List<Pho
         relativeLoading = findViewById(R.id.RelativeLoading);
         recyclerView = findViewById(R.id.Recyler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-//        DataDummy dataDummy = new DataDummy();
-//        RecylerAdapter adapter = new RecylerAdapter(dataDummy);
-//        recyclerView.setAdapter(adapter);
-
+        
         getDataFromAPI();
 
     }
