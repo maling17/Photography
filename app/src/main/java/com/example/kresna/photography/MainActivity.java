@@ -17,5 +17,9 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.Recyler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        DataDummy dataDummy=new DataDummy();
+        RecylerAdapter adapter=new RecylerAdapter(dataDummy);
+        recyclerView.setAdapter(adapter);
+
     }
 }
