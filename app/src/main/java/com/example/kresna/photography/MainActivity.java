@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements Callback<List<Pho
 
     private static final String baseurl = "https://picsum.photos/";
     private RelativeLayout relativeLoading;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements Callback<List<Pho
         Log.d("pesan", "masuk Oncreate ");
 
         relativeLoading = findViewById(R.id.RelativeLoading);
-        RecyclerView recyclerView = findViewById(R.id.Recyler);
+        recyclerView = findViewById(R.id.Recyler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 //        DataDummy dataDummy = new DataDummy();
@@ -65,10 +66,15 @@ public class MainActivity extends AppCompatActivity implements Callback<List<Pho
         relativeLoading.setVisibility(View.GONE);
     }
 
+    private void showDataRecylcer(List<PhotoItem> data) {
+        RecylerAdapter adapter = new RecylerAdapter(data);
+        recyclerView.setAdapter(adapter);
+    }
+
     @Override
     public void onResponse(@NonNull Call<List<PhotoItem>> call, @NonNull Response<List<PhotoItem>> response) {
         hideLoading();
-        Toast.makeText(this, "Berhasil", Toast.LENGTH_SHORT).show();
+        showDataRecylcer(response.body());
     }
 
     @Override
