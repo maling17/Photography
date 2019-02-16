@@ -46,7 +46,7 @@ public class RecylerAdapter extends RecyclerView.Adapter<RecylerAdapter.ViewHold
     }
 
     public interface OnPhotoClickListener {
-        void OnClick(int id);
+        void OnClick(PhotoItem photo);
 
     }
 
@@ -68,7 +68,7 @@ public class RecylerAdapter extends RecyclerView.Adapter<RecylerAdapter.ViewHold
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.OnClick(photoItemList.get(getAdapterPosition()).getId());
+                    listener.OnClick(photoItemList.get(getAdapterPosition()));
                 }
             });
         }
